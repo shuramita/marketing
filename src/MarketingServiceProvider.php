@@ -15,6 +15,8 @@ class MarketingServiceProvider extends ServiceProvider
     public function boot(Router $router)
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'marketing');
+        $this->app->register('Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider');
     }
 
     /**

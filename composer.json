@@ -10,5 +10,7 @@
       "email": "minhtamtt@gmail.com"
     }
   ],
-  "require": {}
+  "require": {
+    "fedeisas/laravel-mail-css-inliner": "^2.2"
+  }
 }
