@@ -1,0 +1,14 @@
+{
+  "name": "shuramita/marketing",
+  "description": "Marketing Tool",
+  "type": "library",
+  "version": "1.0.0",
+  "license": "OSL-3.0",
+  "authors": [
+    {
+      "name": "Tam Nguyen",
+      "email": "minhtamtt@gmail.com"
+    }
+  ],
+  "require": {}
+}
