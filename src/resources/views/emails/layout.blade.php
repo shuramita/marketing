@@ -6,8 +6,9 @@
     <title>{{$title or ""}}</title>
     <style>{{$style or ""}}</style>
 </head>
-<body style="margin: 0; padding: 0;">
-<table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;max-width: 600px;margin: 0 auto;">
+<body class="main" style="margin: 0; padding: 0;background-color: #f7f7f7;font-family: Roboto, sans-serif;">
+
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;max-width: 600px;margin: 0 auto;">
     <tr>
         <td align="center" style="">
             <div class="logo">

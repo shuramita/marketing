@@ -1,0 +1,63 @@
+
+@mixin middle(){
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin center(){
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin middleAndCenter(){
+  position: absolute;
+  top: 50%;left: 50%;
+  transform: translate(-50%,-50%);
+}
+// Predefined Break-points
+$extraHWidth: 1600px;
+$hdpiWidth: 1440px;
+$largeWidth: 1260px;
+$middleWidth:1024px;
+$tabletWidth: 768px;
+$mediumWidth: 767px;
+$smallWidth: 480px;
+$miniWidth: 321px;
+@function translate-media-condition($c) {
+  $condMap: (
+		  "screen": "only screen",
+		  "print": "only print",
+		  "retina": "(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 120dpi)",
+		  ">extraH": "(min-width: #{$extraHWidth + 1})",
+		  "<extraH": "(max-width: #{$extraHWidth})",
+		  ">hdpi": "(min-width: #{$hdpiWidth + 1})",
+		  "<hdpi": "(max-width: #{$hdpiWidth})",
+		  ">large": "(min-width: #{$largeWidth + 1})",
+		  "<large": "(max-width: #{$largeWidth})",
+		  ">middle": "(min-width: #{$middleWidth + 1})",
+		  "<middle": "(max-width: #{$middleWidth})",
+		  ">tablet": "(min-width: #{$tabletWidth + 1})",
+		  "<tablet": "(max-width: #{$tabletWidth})",
+		  ">medium": "(min-width: #{$mediumWidth + 1})",
+		  "<medium": "(max-width: #{$mediumWidth})",
+		  ">small": "(min-width: #{$smallWidth + 1})",
+		  "<small": "(max-width: #{$smallWidth})",
+		  ">mini": "(min-width: #{$miniWidth + 1})",
+		  "<mini": "(max-width: #{$miniWidth})",
+		  "landscape": "(orientation: landscape)",
+		  "portrait":"(orientation: portrait)"
+  );
+  @return map-get( $condMap, $c );
+}
+// The mdia mixin
+@mixin media($args...) {
+  $query: "";
+  @each $arg in $args {
+	$op: "";
+	@if ( $query != "") {
+	  $op: " and ";
+	}
+	$query: $query + $op + translate-media-condition($arg);
+  }
+  @media #{$query}  { @content; }
+}

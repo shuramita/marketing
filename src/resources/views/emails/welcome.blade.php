@@ -1,4 +1,15 @@
 @extends('marketing::emails.layout')
+@section('header')
+    <h1>
+        Welcome to Averspace!
+    </h1>
+    <h2>
+        First block-chain enabled real-estate platform in Singapore!
+    </h2>
+    <span class="button-white">
+            <a href="{{$links->home}}">VISIT AVERSPACE</a>
+    </span>
+@endsection
 @section('body')
     <div class="body">
         <p>
@@ -66,10 +77,7 @@
                 </td>
             </tr>
         </table>
-        <div class="preferences">
-            For best results, please complete your preferences
-            <a href="{{$links->survey}}">here!</a>
-        </div>
+        @include('marketing::emails.partials.preferences')
         @include('marketing::emails.partials.signature')
     </div>
 @endsection

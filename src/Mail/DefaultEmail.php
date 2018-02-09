@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-class Welcome extends Mailable
+class DefaultEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -26,7 +26,7 @@ class Welcome extends Mailable
         $resource = new MailResource();
         $this->style = file_get_contents(public_path().'/vendor/marketing/marketing.css');
         $this->title = 'Welcome to Averspace';
-        $resource->addGA('?utm_source=email&utm_medium=welcome&utm_campaign=marketing');
+        $resource->addGA('?utm_source=email&utm_medium=offer_message&utm_campaign=marketing');
         $this->images = $resource->images;
         $this->links = $resource->links;
 
@@ -40,7 +40,7 @@ class Welcome extends Mailable
      */
     public function build()
     {
-        return $this->view('marketing::emails.welcome')
+        return $this->view('marketing::emails.default')
                     ->with([
                         'style' => $this->style,
                         'title' => $this->title,
