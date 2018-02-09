@@ -12,5 +12,10 @@
   ],
   "require": {
     "fedeisas/laravel-mail-css-inliner": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Shuramita\\Marketing\\": "src/"
+    }
   }
 }
